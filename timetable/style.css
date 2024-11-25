@@ -1,0 +1,47 @@
+table, th, td{
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    margin-top: 20px;
+    
+}
+th,td{
+    padding: 10px;
+}
+th:hover,td:hover{
+    background-color: rgb(46, 113, 140);
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+p{
+    text-align: center;
+}
+.lib{
+    background-color: red;
+}
+.flex-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.box1{
+    width: 20%;
+    overflow: hidden;
+    margin-left: 50px;
+}
+.box2{
+    width: 70%;
+    font-weight: bold;
+    font-size: 20px;
+}
+.flex-container2{
+    display: flex;
+    flex-direction: column;
+    padding:0px 100px 100px 100px;
+}
+p{
+    margin: 0px;
+}

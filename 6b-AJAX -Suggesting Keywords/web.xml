@@ -1,0 +1,33 @@
+function showSuggestions() {
+    let input = document.getElementById('studentName').value;
+    if (input.length === 0) {
+        document.getElementById('suggestions').innerHTML = "";
+        return;
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let response = JSON.parse(xhr.responseText);
+            displaySuggestions(response);
+        }
+    };
+    xhr.open("GET", "StudentServlet?query=" + input, true);
+    xhr.send();
+}
+
+function displaySuggestions(suggestions) {
+    const suggestionDiv = document.getElementById('suggestions');
+    suggestionDiv.innerHTML = ""; // Clear previous suggestions
+
+    suggestions.forEach((name) => {
+        let div = document.createElement('div');
+        div.className = "suggestion-item";
+        div.textContent = name;
+        div.onclick = () => {
+            document.getElementById('studentName').value = name;
+            suggestionDiv.innerHTML = ""; // Clear suggestions after selection
+        };
+        suggestionDiv.appendChild(div);
+    });
+}

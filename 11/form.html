@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Form and Window Events</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .form-container {
+            margin: 20px;
+        }
+        
+        input[type="text"],
+        select {
+            margin: 5px 0;
+            padding: 8px;
+            width: 200px;
+        }
+        
+        .scroll-message {
+            margin-top: 50px;
+            height: 1000px;
+            /* To make the page scrollable */
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Sample Form</h2>
+        <form id="sampleForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="age">Age:</label><br>
+            <input type="text" id="age" name="age"><br><br>
+
+            <label for="gender">Gender:</label><br>
+            <select id="gender" name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="scroll-message">
+        <p>Scroll down to see the scroll event message.</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Form submit event
+            $("#sampleForm").submit(function(event) {
+                event.preventDefault(); // Prevent default form submission
+                alert("Form submitted successfully!");
+            });
+
+            // Focus event on input fields
+            $("input[type='text']").focus(function() {
+                $(this).css("background-color", "lightyellow");
+            });
+
+            // Blur event on input fields
+            $("input[type='text']").blur(function() {
+                $(this).css("background-color", "");
+            });
+
+            // Change event on select dropdown
+            $("#gender").change(function() {
+                alert("Gender selection changed to: " + $(this).val());
+            });
+
+            // Keydown event on the Name field
+            $("#name").keydown(function() {
+                console.log("Key pressed in Name field!");
+            });
+
+            // Window load event
+            $(window).on("load", function() {
+                console.log("Page has fully loaded!");
+            });
+
+            // Window resize event
+            $(window).resize(function() {
+                console.log("Window resized! Width: " + $(window).width() + ", Height: " + $(window).height());
+            });
+
+            // Window scroll event
+            $(window).scroll(function() {
+                console.log("Page scrolled! Scroll position: " + $(window).scrollTop());
+            });
+        });
+    </script>
+
+</body>
+
+</html>

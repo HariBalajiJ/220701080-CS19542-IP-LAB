@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Course Registration Form</h2>
+        <form id="registrationForm" onsubmit="return checkAll()">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" class="input" placeholder="Enter your full name" onblur="nameCheck()">
+            <div id="msg" class="msgs">Please enter a valid name.</div>
+
+            <label for="rollno">Roll Number:</label>
+            <input type="text" id="rollno" class="input" placeholder="Enter your roll number" onblur="rollCheck()">
+            <div id="msg1" class="msgs">Roll number should be exactly 9 characters long.</div>
+
+            <label for="mobno">Mobile Number:</label>
+            <input type="text" id="mobno" class="input" placeholder="Enter your mobile number" onblur="numCheck()">
+            <div id="msg2" class="msgs">Mobile number should be exactly 10 digits long.</div>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" class="input" placeholder="Enter your email">
+            <div id="msg4" class="msgs">Please enter a valid email address.</div>
+
+            <label for="pin">Pincode:</label>
+            <input type="text" id="pin" class="input" placeholder="Enter your pincode" onblur="pinCheck()">
+            <div id="msg3" class="msgs">Pincode should be exactly 6 digits long.</div>
+
+            <label for="year">Year:</label>
+            <select id="year" class="input">
+                <option value="none">Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+            </select>
+            <div id="opt1" class="msgs">Please select your year.</div>
+
+            <label for="dept">Department:</label>
+            <select id="dept" class="input">
+                <option value="none">Select Department</option>
+                <option value="cse">Computer Science</option>
+                <option value="ece">Electronics</option>
+                <option value="mech">Mechanical</option>
+                <option value="civil">Civil</option>
+            </select>
+            <div id="opt2" class="msgs">Please select your department.</div>
+
+            <label for="section">Section:</label>
+            <select id="section" class="input">
+                <option value="none">Select Section</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+            <div id="opt3" class="msgs">Please select your section.</div>
+
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="male" class="gender"> Male 
+            <input type="radio" name="gender" value="female" class="gender"> Female <br/> <br/>
+            <div id="radio" class="msgs">Please select your gender.</div>
+
+            <label for="addr">Address:</label>
+            <input type="text" id="addr" class="input" placeholder="Enter your address">
+            <div id="msg5" class="msgs">Please enter your address.</div>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" class="input" placeholder="Enter your city">
+            <div id="msg6" class="msgs">Please enter your city.</div>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" class="input" placeholder="Enter your country">
+            <div id="msg7" class="msgs">Please enter your country.</div>
+
+            <button type="submit">Register</button>
+            <button type="reset" onclick="clearAll()">Clear</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
